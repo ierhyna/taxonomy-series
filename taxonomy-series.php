@@ -3,7 +3,7 @@
 Plugin Name: Series Taxonomy
 Plugin URI: http://oriolo.ru
 Description: That plugin creates Custom Taxonomy called Series to posts. Based on Category.
-Version: 1.1.0
+Version: 1.0.0
 Author: Irina Sokolovskaja
 Author URI: http://oriolo.ru
 License: GPLv2
