@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: Series Taxonomy
-Plugin URI: http://oriolo.ru
-Description: That plugin creates Custom Taxonomy called Series to posts. Based on Category.
+Plugin URI: http://oriolo.ru/taxonomy-series/
+Description: Plugin creates Custom Taxonomy called Series to posts. So you can use not only categories and tags, but also series to categorize your posts.
 Version: 1.0.0
 Author: Irina Sokolovskaja
 Author URI: http://oriolo.ru
