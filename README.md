@@ -1,5 +1,5 @@
 taxonomy-series
 ===============
-~Current Version:1.0~
+~Current Version:1.1~
 
 Creates "Series" for WordPress posts
