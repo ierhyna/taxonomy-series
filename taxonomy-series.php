@@ -49,6 +49,16 @@ function taxonomy_series() {
 
 }
 
+//runs only when the theme is set up
+function taxonomy_series_flush_rules(){
+	//defines the post type so the rules can be flushed.
+	taxonomy_series();
+
+	//and flush the rules.
+	flush_rewrite_rules();
+}
+register_activation_hook(__FILE__, 'taxonomy_series_flush_rules');
+
 // Hook into the 'init' action
 add_action( 'init', 'taxonomy_series', 0 );
 ?>
