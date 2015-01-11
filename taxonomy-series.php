@@ -3,14 +3,14 @@
 Plugin Name: Post Series by oriolo
 Plugin URI: http://oriolo.ru/posts-series-plugin/
 Description: Plugin creates Custom Taxonomy called Series to posts. So you can use not only categories and tags, but also series to categorize your posts.
-Version: 1.0.1
+Version: 1.0.2
 Author: Irina Sokolovskaja
 Author URI: http://oriolo.ru
 License: GPLv2
 */
 
 
-add_action( 'init', 'github_plugin_updater' );
+add_action( 'init', 'github_plugin_updater' ); // using GitHub updater
 function github_plugin_updater() {
 	include_once 'updater.php';
 	define( 'WP_GITHUB_FORCE_UPDATE', true );
@@ -23,8 +23,8 @@ function github_plugin_updater() {
 			'github_url' => 'https://github.com/ierhyna/taxonomy-series',
 			'zip_url' => 'https://github.com/ierhyna/taxonomy-series/archive/master.zip',
 			'sslverify' => true,
-			'requires' => '3.0',
-			'tested' => '3.3',
+			'requires' => '2.8.0',
+			'tested' => '4.1',
 			'readme' => 'README.md',
 			'access_token' => '',
 		);
