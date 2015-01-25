@@ -9,6 +9,30 @@ Author URI: http://oriolo.ru
 License: GPLv2
 */
 
+function github_plugin_updater(){ 
+	// register actions
+	add_action( 'init', 'github_plugin_updater' ); // using GitHub updater
+
+	// add updater
+	require_once(sprintf("%s/updater.php", dirname(__FILE__)));
+	define( 'WP_GITHUB_FORCE_UPDATE', true );
+	if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
+		$config = array(
+			'slug' => plugin_basename( __FILE__ ),
+			'proper_folder_name' => 'taxonomy-series',
+			'api_url' => 'https://api.github.com/repos/ierhyna/taxonomy-series',
+			'raw_url' => 'https://raw.github.com/ierhyna/taxonomy-series/dev',
+			'github_url' => 'https://github.com/ierhyna/taxonomy-series',
+			'zip_url' => 'https://github.com/ierhyna/taxonomy-series/archive/dev.zip',
+			'sslverify' => true,
+			'requires' => '2.8.0',
+			'tested' => '4.1',
+			'readme' => 'readme.txt',
+			'access_token' => '',
+		);
+		new WP_GitHub_Updater( $config );
+	}
+}
 
 if(!class_exists('Taxonomy_Series'))
 {
@@ -19,29 +43,6 @@ if(!class_exists('Taxonomy_Series'))
 	*/
 	public function __construct()
 		{
-			// register actions
-			add_action( 'init', 'github_plugin_updater' ); // using GitHub updater
-
-			// add updater
-			require_once(sprintf("%s/updater.php", dirname(__FILE__)));
-			define( 'WP_GITHUB_FORCE_UPDATE', true );
-			if ( is_admin() ) { // note the use of is_admin() to double check that this is happening in the admin
-				$config = array(
-					'slug' => plugin_basename( __FILE__ ),
-					'proper_folder_name' => 'taxonomy-series',
-					'api_url' => 'https://api.github.com/repos/ierhyna/taxonomy-series',
-					'raw_url' => 'https://raw.github.com/ierhyna/taxonomy-series/master',
-					'github_url' => 'https://github.com/ierhyna/taxonomy-series',
-					'zip_url' => 'https://github.com/ierhyna/taxonomy-series/archive/master.zip',
-					'sslverify' => true,
-					'requires' => '2.8.0',
-					'tested' => '4.1',
-					'readme' => 'readme.txt',
-					'access_token' => '',
-				);
-				new WP_GitHub_Updater( $config );
-			}
-
 			// register taxonomy
 			require_once(sprintf("%s/series-template.php", dirname(__FILE__)));
 			$Post_Series_Taxonomy = new Post_Series_Taxonomy();

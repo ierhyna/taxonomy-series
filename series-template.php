@@ -7,8 +7,7 @@ if(!class_exists('Post_Series_Taxonomy'))
      */
     class Post_Series_Taxonomy
     {
-    	const TAXONOMY = "series";
-
+        
 	    /**
 		 * The Constructor
 		 */
@@ -16,7 +15,6 @@ if(!class_exists('Post_Series_Taxonomy'))
 		{
 		    // register actions
 		    add_action('init', array(&$this, 'init'));
-		    add_action('admin_init', array(&$this, 'admin_init'));
 		} // END public function __construct()
 
 		// Register Custom Taxonomy
@@ -54,10 +52,12 @@ if(!class_exists('Post_Series_Taxonomy'))
 				'show_tagcloud'              => false,
 				'rewrite'                    => $rewrite,
 			);
-			register_taxonomy( self::TAXONOMY, 'post', $args );
+			register_taxonomy( 'series', 'post', $args );
 
 		}
-
+        public function init() {
+            $this->create_taxonomy_series();
+        }
     } // END class Post_Series_Taxonomy
 } // END if(!class_exists('Post_Series_Taxonomy'))
 
